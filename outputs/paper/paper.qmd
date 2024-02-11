@@ -9,6 +9,8 @@ date: today
 date-format: long
 abstract: "Write after we have the results"
 format: pdf
+toc: true
+toc-depth: 3
 number-sections: true
 bibliography: references.bib
 ---
@@ -19,7 +21,11 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
+library(ggplot2)
+library(janitor)
+library(dplyr)
+library(readr)
+library(knitr)
 ```
 
 
@@ -66,11 +72,11 @@ Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta
 
 
 
-# Results
+# Results {#sec-res}
 
 
 
-# Discussion
+# Discussion {#sec-dis}
 
 ## First discussion point {#sec-first-point}
 
