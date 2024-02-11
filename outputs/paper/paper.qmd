@@ -2,12 +2,12 @@
 title: "My title"
 subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - Ziheng Zhong
+  - Charles Cai
+thanks: "Code and data are available at: https://github.com/iJustinn/Effect_of_Charter_Schools_on_School_Segregation.git"
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "Write after we have the results"
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -26,7 +26,19 @@ library(palmerpenguins)
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. 
+In recent years, charter schools have become a popular choice for families looking for alternatives to traditional public schools in the United States. These schools are praised by many for offering new opportunities for education improvement, suggesting that they can lead to better student performance by encouraging competition among schools. Research has shown that charter schools can indeed help students achieve higher test scores. However, not all parents choose schools based on their effectiveness alone, which can lead to increased differences in school quality and potentially make educational inequality worse.
+
+An important issue in American education is the ongoing problem of racial segregation in schools, a problem that persists over 65 years since the historic Brown v. Board of Education decision aimed to end it. The question then arises: how do charter schools, which allow families to choose their schools, affect this racial divide? The answer is not straightforward. On one hand, charter schools could help mix students from different backgrounds by not tying school attendance to where a family lives, which often reflects racial divisions. On the other hand, if families select schools based on racial preferences or other factors, charter schools could actually make segregation worse.
+
+While some charter schools aim to serve underrepresented communities, the overall impact of charter schools on racial segregation in public schools has been unclear and somewhat contested. Previous research on this topic has been mixed, with some studies suggesting charter schools might concentrate minority students more than traditional public schools do, while others find little difference in racial isolation between charter and traditional schools.
+
+This paper aims to shed light on this issue by providing detailed analysis on whether charter schools contribute to or alleviate racial segregation in public schools. We use a large dataset covering nearly all public schools in the country from 1998 to 2018 to examine how the presence of charter schools affects the racial makeup of schools. Our study looks at how these effects play out across different regions and for different racial and ethnic groups, using sophisticated methods to ensure our findings are reliable.
+
+We find that the expansion of charter schools has, on average, led to more segregation among racial and ethnic groups in schools, particularly in urban areas with large Black and Hispanic populations. However, the situation is complex, as charter schools also seem to bring some level of integration across larger geographic areas like metropolitan regions.
+
+Our research contributes to the ongoing debate on the role of charter schools in American education, highlighting the need for careful consideration of how school choice impacts racial segregation. While charter schools have the potential to offer important benefits, it's crucial to understand and address the unintended consequences they may have on racial dynamics within the education system.
+
+
 
 The remainder of this paper is structured as follows. @sec-data....
 
@@ -36,106 +48,25 @@ The remainder of this paper is structured as follows. @sec-data....
 
 Some of our data is of penguins (@fig-bills), from @palmerpenguins.
 
-```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
-#| echo: false
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
-
-analysis_data <- read_csv(here::here("outputs/data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
-
-Talk way more about it. 
-
 
 
 # Model
 
-The goal of our modelling strategy is twofold. Firstly,...
-
 Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+
+
 
 ## Model set-up
 
 Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
 
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
-
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
 
 ### Model justification
 
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
 
 
 # Results
-
-Our results are summarized in @tbl-modelresults.
-
-```{r}
-#| echo: false
-#| eval: true
-#| warning: false
-#| message: false
-
-library(rstanarm)
-
-first_model <-
-  readRDS(file = here::here("outputs/models/first_model.rds"))
-```
-
-```{r}
-#| echo: false
-#| eval: true
-#| label: tbl-modelresults
-#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
-#| warning: false
-
-modelsummary::modelsummary(
-  list(
-    "First model" = first_model
-  ),
-  statistic = "mad",
-  fmt = 2
-)
-```
-
 
 
 
@@ -166,51 +97,9 @@ Weaknesses and next steps should also be included.
 
 ## Posterior predictive check
 
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
 
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
-```
 
 ## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
-
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
 
 
 
