@@ -1,1 +1,1 @@
-#  Effect_of_Charter_Schools_on_School_Segregation
+#  The Effect of Charter Schools on School Segregation
