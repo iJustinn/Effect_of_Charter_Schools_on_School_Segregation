@@ -4,7 +4,7 @@ subtitle: "My subtitle if needed"
 author: 
   - Ziheng Zhong
   - Charles Cai
-thanks: "Code and data are available at: https://github.com/iJustinn/Effect_of_Charter_Schools_on_School_Segregation.git"
+thanks: "Code and data are available at: https://github.com/iJustinn/Impact_of_Past_Behavior_Normality_on_Regret.git"
 date: today
 date-format: long
 abstract: "Write after we have the results"
@@ -32,17 +32,15 @@ library(knitr)
 
 # Introduction
 
-In recent years, charter schools have become a popular choice for families looking for alternatives to traditional public schools in the United States. These schools are praised by many for offering new opportunities for education improvement, suggesting that they can lead to better student performance by encouraging competition among schools. Research has shown that charter schools can indeed help students achieve higher test scores. However, not all parents choose schools based on their effectiveness alone, which can lead to increased differences in school quality and potentially make educational inequality worse.
+This study delves into how people make decisions, feel about their choices, and, especially, how they deal with regret when things don't go as planned. Imagine taking a different route home and getting into a car accident. How much more would you regret these decisions just because they're not what you usually do? This idea stems from a concept called norm theory, which suggests that people feel extra bad about outcomes when they result from actions that are not typical for them.
 
-An important issue in American education is the ongoing problem of racial segregation in schools, a problem that persists over 65 years since the historic Brown v. Board of Education decision aimed to end it. The question then arises: how do charter schools, which allow families to choose their schools, affect this racial divide? The answer is not straightforward. On one hand, charter schools could help mix students from different backgrounds by not tying school attendance to where a family lives, which often reflects racial divisions. On the other hand, if families select schools based on racial preferences or other factors, charter schools could actually make segregation worse.
+This paper focuses on two main experiments to unravel this complex bundle of decisions and emotions. The first experiment places people in a scenario where they decide whether or not to pick up a hitchhiker, testing how much one would regret the decision based on whether it's something they normally do. The second experiment changes the setting to driving, where choosing a different route leads to an accident, and looks at how this break from routine affects their feelings of regret.
 
-While some charter schools aim to serve underrepresented communities, the overall impact of charter schools on racial segregation in public schools has been unclear and somewhat contested. Previous research on this topic has been mixed, with some studies suggesting charter schools might concentrate minority students more than traditional public schools do, while others find little difference in racial isolation between charter and traditional schools.
+At the center of the investigation is the idea of exceptionality—making choices that break from people's usual patterns—and how this leads to stronger feelings of regret when things go wrong. This paper also explores whether people think that making an unusual choice (one they had full control over) makes them more responsible for the bad outcome, compared to if someone else made the decision for them or if it was just another day doing the same old thing.
 
-This paper aims to shed light on this issue by providing detailed analysis on whether charter schools contribute to or alleviate racial segregation in public schools. We use a large dataset covering nearly all public schools in the country from 1998 to 2018 to examine how the presence of charter schools affects the racial makeup of schools. Our study looks at how these effects play out across different regions and for different racial and ethnic groups, using sophisticated methods to ensure our findings are reliable.
+This paper takes a closer look at the concept of free will in people's choices, whether they believe that they had the freedom to choose differently in situations they set up themselves versus those set up by others or by habit. This part of the study helps people understand better why one might blame themselves more when they voluntarily make a choice that leads to regret.
 
-We find that the expansion of charter schools has, on average, led to more segregation among racial and ethnic groups in schools, particularly in urban areas with large Black and Hispanic populations. However, the situation is complex, as charter schools also seem to bring some level of integration across larger geographic areas like metropolitan regions.
-
-Our research contributes to the ongoing debate on the role of charter schools in American education, highlighting the need for careful consideration of how school choice impacts racial segregation. While charter schools have the potential to offer important benefits, it's crucial to understand and address the unintended consequences they may have on racial dynamics within the education system.
+By picking apart these scenarios, this paper aims to shed light on the tricky relationship between stepping out of one's comfort zone in decision-making and the regret that can follow, especially when things don't turn out well. The goal of this research is to contribute to the broader conversation on how people's minds work in these situations, improving understanding of why people feel the way they do after making certain choices. This insight is not just for psychologists but for anyone interested in the little decisions people make every day and how they shape their feelings and lives.
 
 
 
