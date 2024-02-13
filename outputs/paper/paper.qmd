@@ -1,13 +1,13 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Research on The Impact of Past Behaviour Normality on Regret"
+subtitle: "The replication of two major experiments"
 author: 
   - Ziheng Zhong
-  - Charles Cai
+  - Yihang Cai
 thanks: "Code and data are available at: https://github.com/iJustinn/Impact_of_Past_Behavior_Normality_on_Regret.git"
 date: today
 date-format: long
-abstract: "Write after we have the results"
+abstract: "To be written after we finished the Discussion section"
 format: pdf
 toc: true
 toc-depth: 3
@@ -32,61 +32,68 @@ library(knitr)
 
 # Introduction
 
-This study delves into how people make decisions, feel about their choices, and, especially, how they deal with regret when things don't go as planned. Imagine taking a different route home and getting into a car accident. How much more would you regret these decisions just because they're not what you usually do? This idea stems from a concept called norm theory, which suggests that people feel extra bad about outcomes when they result from actions that are not typical for them.
+Descriptive norms and injunctive norms are key concepts in understanding social behavior, each describing different aspects of how individuals perceive and are influenced by the norms within their community or society. Descriptive norms are about observing and following what most people do in a given situation, essentially reflecting the common actions or behaviors within a group. Injunctive norms, on the other hand, are about what people believe they should or shouldn't do, based on the group's values or expectations for behavior. These norms carry a sense of approval or disapproval, guiding behavior by suggesting what is socially acceptable or frowned upon. Both types of norms are powerful in shaping individual actions by providing a roadmap of 'what is done' and 'what ought to be done,' helping maintain social order and cohesion by aligning personal conduct with group expectations.
 
-This paper focuses on two main experiments to unravel this complex bundle of decisions and emotions. The first experiment places people in a scenario where they decide whether or not to pick up a hitchhiker, testing how much one would regret the decision based on whether it's something they normally do. The second experiment changes the setting to driving, where choosing a different route leads to an accident, and looks at how this break from routine affects their feelings of regret.
+This study delves into how people make decisions, feel about their choices, and, how they deal with regret when things don't go as planned. How much more would people regret their decisions just because they're not what you usually do? This idea stems from a concept called norm theory, which suggests that people feel extra bad about outcomes when they result from actions that are not typical for them. Two main experiments was introduced to unravel this complex bundle of decisions and emotions. The first experiment places people in a scenario where they decide whether or not to pick up a hitchhiker, testing how much one would regret the decision based on whether it's something they normally do. The second experiment changes the setting to driving, where choosing a different route leads to an accident, and looks at how this break from routine affects their feelings of regret.
 
-At the center of the investigation is the idea of exceptionality—making choices that break from people's usual patterns—and how this leads to stronger feelings of regret when things go wrong. This paper also explores whether people think that making an unusual choice (one they had full control over) makes them more responsible for the bad outcome, compared to if someone else made the decision for them or if it was just another day doing the same old thing.
+By picking apart these scenarios, this paper aims to shed light on the tricky relationship between stepping out of one's comfort zone in decision-making and the regret that can follow, especially when things don't turn out well. The goal of this research is to contribute to the broader conversation on how people's minds work in these situations, improving understanding of why people feel the way they do after making certain choices. This insight is not just for psychologists but for anyone interested in the little decisions people make every day and how they shape their feelings and lives. With all been said, we predicted that someone who often picks up hitchhikers would be seen as doing something unusual (against descriptive norms) and might be judged more harshly by others (against injunctive norms). We also introduced a new aspect to the original experiment, looking at how these social norms and a person's usual actions stir up feelings, both good and bad.
 
-This paper takes a closer look at the concept of free will in people's choices, whether they believe that they had the freedom to choose differently in situations they set up themselves versus those set up by others or by habit. This part of the study helps people understand better why one might blame themselves more when they voluntarily make a choice that leads to regret.
+The remainder of this paper is structured as follows.
 
-By picking apart these scenarios, this paper aims to shed light on the tricky relationship between stepping out of one's comfort zone in decision-making and the regret that can follow, especially when things don't turn out well. The goal of this research is to contribute to the broader conversation on how people's minds work in these situations, improving understanding of why people feel the way they do after making certain choices. This insight is not just for psychologists but for anyone interested in the little decisions people make every day and how they shape their feelings and lives.
-
-
-
-The remainder of this paper is structured as follows. @sec-data....
-
+@sec-data
+@sec-res
+@sec-dis
 
 
 # Data {#sec-data}
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+Data used in this paper was cleaned and processed with the programming language R [@citeR]. Also with support of additional packages in R: `tidyverse` [@citeTidyverse], `ggplot2` [@citeGgplot], `janitor` [@citeJanitor], `dplyr` [@citeDplyr], `readr` [@citeReadr], `knitr` [@citeknitr].
+
+## Source
+
+The data used in this paper was a replication of experimental data presented in the @citeOriginalPaper paper.
+
+## Method
+
+### Experiment #1
+
+### Experiment #2
 
 
 
-# Model
+## Attibutes
 
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+### Experiment #1
 
-
-
-## Model set-up
-
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
-
-
-
-### Model justification
+### Experiment #2
 
 
 
 # Results {#sec-res}
 
+## Experiment #1
+
+## Experiment #2
+
 
 
 # Discussion {#sec-dis}
 
-## First discussion point {#sec-first-point}
+## First discussion point
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
 
 ## Second discussion point
 
+
 ## Third discussion point
+
 
 ## Weaknesses and next steps
 
-Weaknesses and next steps should also be included.
+
+
+
+
 
 \newpage
 
