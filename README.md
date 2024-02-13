@@ -2,7 +2,8 @@
 
 ## Paper Overview
 
-This paper repicated the [research](https://www.tandfonline.com/doi/full/10.1080/02699931.2018.1504747) about the impact of the impact of people's past behaviour on regret. The comprehensive analysis was conducted using `R` programming and is presented as a final research paper in `PDF` format.
+This paper replicated the [research](https://www.tandfonline.com/doi/full/10.1080/02699931.2018.1504747) done by Lucas Kutscher & Gilad Feldman, about the impact of the impact of people's past behaviour on regret.
+The comprehensive analysis was conducted using `R` programming and is presented as a final research paper in `PDF` format.
 
 ## File Structure
 
