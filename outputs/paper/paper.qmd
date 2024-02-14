@@ -92,7 +92,7 @@ example_data <- data %>%
   head(10)  # Selecting only the top 10 rows for the table
 
 # Generating the table using kable and kableExtra for styling
-example_kable <- kable(example_data, format = "latex", booktabs = TRUE, align='c') %>%
+example_kable <- kable(example_data, format = "latex", booktabs = TRUE, align='c') %>% # align the text in the middle
   kable_styling(full_width = FALSE, font_size = 7) 
 example_kable
 ```
@@ -190,6 +190,10 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
     legend.position = "top", legend.title = element_blank())
 ```
 
+@tbl-experiment1 and @fig-experiment1bar display results from experiment 1. Mr. Jones, who performs an action that is an exception to his routine, reports a higher regret level of 92.1%. Most participants rated Mr.Jones' behavior to be more common (descriptive) as he never gave ride to hitchhiker (95.3) and therefore to be less criticized (injunctive) by the society (9.4%). Mr.Jones is thought to experience more negative feelings about the decision made that day combining previous answers to the two social norms (92.7%). Mr.Smith, associated with routine behavior, shows markedly lower levels in these aspects, participants rated 7.9%, 4.7%, 90.6% and 7.3% for regret, descriptive social norm, injunctive social norm, and negative effect respectively. Indicating that although Mr.Smith is thought to be criticized more in the society, he would experience less regret and negative effect overall. 
+
+
+In academic terms, the disparity in responses suggests that individuals who engage in behaviors that are not typical for them (Mr. Jones) are more likely to experience and be perceived as having stronger regret and more negative emotional responses. The consistency in this pattern across different measures indicates a robust finding, aligning with psychological theories that predict increased emotional consequences for actions that deviate from one's own or society's expectations. The bar plot @fig-experiment1bar quantitatively illustrates these findings. Mr. Jones's experiences with regret and negative affect are visually represented by significantly taller bars compared to Mr. Smith's, reflecting the numerical data.
 
 ## Experiment 2
 
