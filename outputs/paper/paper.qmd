@@ -57,11 +57,15 @@ Data used in this paper was cleaned and processed with the programming language 
 
 ## Source
 
-The data used in this paper was a replication of experimental data presented in the @citeOriginalPaper paper.
+The data utilized in this study replicates experimental findings from the research documented in @citeOriginalPaper. This original research itself is a replication of three seminal experiments designed to explore the influence of past behaviors on regret. The initial two experiments were pioneered by Kahneman and Miller in 1986, with the third experiment conducted by Miller and McFarland in the same year. Furthermore, the original study expands upon these foundational experiments. For the first experiment, it introduces an additional parameter to measure the overall emotional reaction of participants, considering the impact of both types of social norms. In the second experiment, a "Luck" measure was added to determine if the way people estimate probabilities influences their sense of what is typical. The expansion of the third experiment is not covered in this paper, as our examination is limited to the initial two experiments.
 
 ## Method
+In the first experiment, participants were presented with a well-known scenario by Kahneman and Miller, often referred to as the hitchhiker scenario: "Mr. Jones almost never takes hitch-hikers in his car. Yesterday he gave a man a ride and was robbed. Mr. Smith frequently takes hitch-hikers in his car. Yesterday he gave a man a ride and was robbed" (@citeOriginalPaper). The original study included three comprehension questions to confirm participants' understanding of the scenario, which we will not detail here. To assess the influence of injunctive and descriptive social norms, participants were asked: "Whose behavior do you think is more common in society? Mr.Jones(1)/Mr.Smith(2)" and "Whose behavior do you think will be more criticized by others in society? Mr.Jones(1)/Mr.Smith(2)" respectively. And the level of regret is also assessed by asking the question "Who do you expect will experience greater regret over the episode? Mr.Jones(1)/Mr.Smith(2)" (@citeOriginalPaper). The additional measure of negative effect is measured by asking the question "Contemplating your previous answers about this scenario and factoring in both Mr.Jones and Mr.Smith personal routines and your perceptions of social norms and possible social criticism, who do you think overall experienced more negative feelings about the decision to take a hitch-hiker that day? Mr.Jones(1)/Mr.Smith(2)".
 
-### Experiment #1
+The second experiment involved another scenario by Kahneman and Miller, known as the car accident scenario: "Mr. Adams was involved in an accident when driving home after work on his regular route. Mr. White was involved in a similar accident when driving on a route that he only takes when he wants a change of scenery" (@citeOriginalPaper). As with the first experiment, comprehension questions were included but are not discussed here. The feeling of regret is assessed by asking the question "Who is more upset over the accident? Mr.Jones(1)/Mr.Smith(2)". The "Luck" measure is examined by the question "Which of the two do you think is less lucky? Mr.Jones(1)/Mr.Smith(2)".
+
+# Results
+## Experiment 1
 
 ```{r}
 #| message: false
@@ -153,7 +157,7 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
 ```
 
 
-### Experiment #2
+## Experiment 2
 
 ```{r}
 #| message: false
@@ -243,15 +247,6 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
 ### Experiment #2
 
 
-
-# Results {#sec-res}
-
-## Experiment #1
-
-## Experiment #2
-
-
-
 # Discussion {#sec-dis}
 
 ## First discussion point
@@ -272,20 +267,6 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
 
 \newpage
 
-\appendix
-
-# Appendix {-}
-
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-
-
-## Diagnostics
 
 
 
