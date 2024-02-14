@@ -98,18 +98,8 @@ example_kable
 ```
 
 
-
-# Results {#sec-res}
-=======
+# Results
 ## Experiment 1
-
-### Regret
-
-From what we learned before, we expected that participants would believe Mr. Jones, who rarely picks up hitchhikers, would feel more regret than Mr. Smith, who does so often. It turns out, most participants did think Mr. Jones would feel worse (315 responses, or 92%) compared to Mr. Smith (27 responses, or 8%), as shown in the @fig-experiment1bar.
-
-### Social norms
-
-Taking our research a step further, we hypothesized that participants would see Mr. Jones's behavior (not picking up hitchhikers) as more typical or normal, and Mr. Smith's behavior (picking up hitchhikers) as less typical and more likely to be judged by others. This was indeed what we found: most people thought Mr. Jones's actions were more common (326 responses, or 95%) and Mr. Smith's actions were more likely to face social criticism (310 responses, or 91%), as shown in the tbl-experiment1.
 
 ```{r}
 #| message: false
@@ -203,15 +193,9 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
 @tbl-experiment1 and @fig-experiment1bar display results from experiment 1. Mr. Jones, who performs an action that is an exception to his routine, reports a higher regret level of 92.1%. Most participants rated Mr.Jones' behavior to be more common (descriptive) as he never gave ride to hitchhiker (95.3) and therefore to be less criticized (injunctive) by the society (9.4%). Mr.Jones is thought to experience more negative feelings about the decision made that day combining previous answers to the two social norms (92.7%). Mr.Smith, associated with routine behavior, shows markedly lower levels in these aspects, participants rated 7.9%, 4.7%, 90.6% and 7.3% for regret, descriptive social norm, injunctive social norm, and negative effect respectively. Indicating that although Mr.Smith is thought to be criticized more in the society, he would experience less regret and negative effect overall. 
 
 
-In academic terms, the disparity in responses suggests that individuals who engage in behaviors that are not typical for them (Mr. Jones) are more likely to experience and be perceived as having stronger regret and more negative emotional responses. The consistency in this pattern across different measures indicates a robust finding, aligning with psychological theories that predict increased emotional consequences for actions that deviate from one's own or society's expectations. The bar plot @fig-experiment1bar quantitatively illustrates these findings. Mr. Jones's experiences with regret and negative affect are visually represented by significantly taller bars compared to Mr. Smith's, reflecting the numerical data.
+The disparity in responses suggests that individuals who engage in behaviors that are not typical for them (Mr. Jones) are more likely to experience and be perceived as having stronger regret and more negative emotional responses. The consistency in this pattern across different measures indicates a robust finding, aligning with psychological theories that predict increased emotional consequences for actions that deviate from one's own or society's expectations. The bar plot @fig-experiment1bar quantitatively illustrates these findings. Mr. Jones's experiences with regret and negative affect are visually represented by significantly taller bars compared to Mr. Smith's, reflecting the numerical data.
 
 ## Experiment 2
-
-### Regret
-
-We had a hunch that participants would feel Mr. White, who had an accident on an unusual route home, would regret his decision more than Mr. Adams, who had his accident on his regular drive home. And it turns out, that's exactly what most participants thought: 277 of them (81%) associated a higher level of regret with Mr. White's unusual decision, while only 65 of them (19%) thought Mr. Adams would feel more regret, as shown in the @fig-experiment2bar.
-
-Thus, our study confirmed our guess: Mr. White's one-off decision led to more regret among our participants than Mr. Adams's everyday routine, suggesting that when bad things happen on a path less traveled, they hit us harder.
 
 ```{r}
 #| message: false
