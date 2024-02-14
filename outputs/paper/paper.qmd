@@ -16,16 +16,27 @@ bibliography: references.bib
 ---
 
 ```{r}
-#| include: false
-#| warning: false
 #| message: false
+#| echo: false
 
+# load packages
 library(tidyverse)
 library(ggplot2)
 library(janitor)
 library(dplyr)
 library(readr)
 library(knitr)
+library(kableExtra)
+library(reshape2)
+```
+
+```{r}
+#| message: false
+#| echo: false
+
+# read in data
+file_path <- "../../inputs/data/raw_data.csv"
+data <- read_csv(file_path, show_col_types = FALSE)
 ```
 
 
@@ -57,7 +68,176 @@ The data used in this paper was a replication of experimental data presented in 
 
 ### Experiment #1
 
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-pos: 'h'
+#| label: tbl-experiment1
+#| tbl-cap: Result of experiment 1
+
+# Filter the data to drop NA values
+data_filtered_1 <- data %>%
+  filter(!is.na(Sc1_regret) & !is.na(sc1_socnorms1) & !is.na(sc1_socnorms2) & !is.na(sc1_combinednorms))
+
+# Calculate the total counts and counts for Mr.Jones (1) and Mr.Smith (2)
+total_counts_1 <- nrow(data_filtered_1)
+mr_jones_counts <- sum(data_filtered_1$Sc1_regret == 1)
+mr_smith_counts <- total_counts_1 - mr_jones_counts
+
+# Calculate the counts and percentages for Mr.Jones
+mr_jones_data <- data.frame(
+  Group = "Mr.Jones(exception)",
+  Regret = paste(mr_jones_counts, "(", round((mr_jones_counts / total_counts_1) * 100, 1), "%)", sep = ""),
+  Injunctive = paste(sum(data_filtered_1$sc1_socnorms1 == 1), "(", round((sum(data_filtered_1$sc1_socnorms1 == 1) / total_counts_1) * 100, 1), "%)", sep = ""),
+  Descriptive = paste(sum(data_filtered_1$sc1_socnorms2 == 1), "(", round((sum(data_filtered_1$sc1_socnorms2 == 1) / total_counts_1) * 100, 1), "%)", sep = ""),
+  `Negative Effect` = paste(sum(data_filtered_1$sc1_combinednorms == 1), "(", round((sum(data_filtered_1$sc1_combinednorms == 1) / total_counts_1) * 100, 1), "%)", sep = "")
+)
+
+# Calculate the counts and percentages for Mr.Smith
+mr_smith_data <- data.frame(
+  Group = "Mr.Smith(routine)",
+  Regret = paste(mr_smith_counts, "(", round((mr_smith_counts / total_counts_1) * 100, 1), "%)", sep = ""),
+  Injunctive = paste(sum(data_filtered_1$sc1_socnorms1 == 2), "(", round((sum(data_filtered_1$sc1_socnorms1 == 2) / total_counts_1) * 100, 1), "%)", sep = ""),
+  Descriptive = paste(sum(data_filtered_1$sc1_socnorms2 == 2), "(", round((sum(data_filtered_1$sc1_socnorms2 == 2) / total_counts_1) * 100, 1), "%)", sep = ""),
+  `Negative Effect` = paste(sum(data_filtered_1$sc1_combinednorms == 2), "(", round((sum(data_filtered_1$sc1_combinednorms == 2) / total_counts_1) * 100, 1), "%)", sep = "")
+)
+
+# Combine the data for Mr. Jones and Mr. Smith into one dataframe
+combined_data <- rbind(mr_jones_data, mr_smith_data)
+
+# Now use kable to create the table with the combined data
+kable_output <- kable(combined_data, "latex", booktabs = TRUE) %>%
+  kable_styling(full_width = FALSE, font_size = 7)
+
+kable_output
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-pos: 'h'
+#| label: fig-experiment1bar
+#| fig-cap: Bar plot of experiment 1
+
+smith_regret_p <- round((mr_smith_counts / total_counts_1) * 100, 1)
+smith_injunctive_p <- round((sum(data_filtered_1$sc1_socnorms1 == 2) / total_counts_1) * 100, 1)
+smith_descriptive_p <- round((sum(data_filtered_1$sc1_socnorms2 == 2) / total_counts_1) * 100, 1)
+smith_negative_p <- round((sum(data_filtered_1$sc1_combinednorms == 2) / total_counts_1) * 100, 1)
+jones_regret_p <- round((mr_jones_counts / total_counts_1) * 100, 1)
+jones_injunctive_p <- round((sum(data_filtered_1$sc1_socnorms1 == 1) / total_counts_1) * 100, 1)
+jones_descriptive_p <- round((sum(data_filtered_1$sc1_socnorms2 == 1) / total_counts_1) * 100, 1)
+jones_negative_p <- round((sum(data_filtered_1$sc1_combinednorms == 1) / total_counts_1) * 100, 1)
+
+# Create a data frame with the provided data
+df <- data.frame(
+  Category = c("Regret", "Injunctive Social Norm", "Descriptive Social Norm", "Negative Affect"),
+  Smith_Routine = c(smith_regret_p, smith_injunctive_p, smith_descriptive_p, smith_negative_p),
+  Jones_Exception = c(jones_regret_p, jones_injunctive_p, jones_descriptive_p, jones_negative_p)
+)
+
+# Convert the data from wide to long format
+data_long <- melt(df, id.vars = "Category", variable.name = "Condition", value.name = "Percentage")
+
+# Reorder the factor levels of Category so that 'Regret' comes first
+data_long$Category <- factor(data_long$Category, levels = c("Regret", "Injunctive Social Norm", "Descriptive Social Norm", "Negative Affect"), 
+                             labels = c("Regret", "Social Norm\nInjunctive", 
+                                        "Social Norm\nDescriptive", "Negative\nAffect"))
+
+# Create the bar plot with the categories reordered
+ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9), width = 0.7) +
+  scale_fill_manual(values = c("Smith_Routine" = "grey", "Jones_Exception" = "#505050"), 
+                    labels = c("Mr.Smith(Routine)", "Mr.Jones(Exception)")) +
+  scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, by = 20)) +
+  theme_minimal() +
+  labs(x = "", y = "Percentage", fill = "Condition") +
+  theme(axis.text.x = element_text(hjust = 1, vjust = 1, colour = "black",size = 9), 
+    legend.position = "top", legend.title = element_blank())
+```
+
+
 ### Experiment #2
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-pos: 'h'
+#| label: tbl-experiment2
+#| tbl-cap: Result of experiment 2
+
+# Filter the data to drop NA values
+data_filtered_2 <- data %>%
+  filter(!is.na(Sc2_regret) & !is.na(Sc2_random_1) & !is.na(Sc2_random_2) & !is.na(Sc2_lucky))
+
+# Calculate the total counts and counts for Mr.Adams (1) and Mr.White (2)
+total_counts_2 <- nrow(data_filtered_2)
+mr_adams_counts <- sum(data_filtered_2$Sc2_regret == 1)
+mr_white_counts <- total_counts_2 - mr_adams_counts
+
+# Calculate the counts and percentages for Mr.Adams
+mr_adams_data <- data.frame(
+  Group = "Mr.Adams(routine)",
+  Regret = paste(mr_adams_counts, "(", round((mr_adams_counts / total_counts_2) * 100, 1), "%)", sep = ""),
+  Luck = paste(sum(data_filtered_2$Sc2_lucky == 1), "(", round((sum(data_filtered_2$Sc2_lucky == 1) / total_counts_2) * 100, 1), "%)", sep = "")
+)
+
+# Calculate the counts and percentages for Mr. White
+mr_white_data <- data.frame(
+  Group = "Mr.White(exception)",
+  Regret = paste(mr_white_counts, "(", round((mr_white_counts / total_counts_2) * 100, 1), "%)", sep = ""),
+  Luck = paste(sum(data_filtered_2$Sc2_lucky == 2), "(", round((sum(data_filtered_2$Sc2_lucky == 2) / total_counts_2) * 100, 1), "%)", sep = "")
+)
+
+# Combine the data for Mr. Jones and Mr. Smith into one dataframe
+combined_data <- rbind(mr_adams_data, mr_white_data)
+
+# Now use kable to create the table with the combined data
+kable_output <- kable(combined_data, "latex", booktabs = TRUE) %>%
+  kable_styling(full_width = FALSE, font_size = 7)
+
+kable_output
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-pos: 'h'
+#| label: fig-experiment2bar
+#| fig-cap: Bar plot of experiment 2
+
+adams_regret_p <- round((mr_adams_counts / total_counts_2) * 100, 1)
+adams_luck_p <- round((sum(data_filtered_2$Sc2_lucky == 1) / total_counts_2) * 100, 1)
+white_regret_p <- round((sum(data_filtered_2$Sc2_regret == 2) / total_counts_2) * 100, 1)
+white_luck_p <- round((sum(data_filtered_2$Sc2_lucky == 2) / total_counts_2) * 100, 1)
+
+# Create a data frame with the provided data
+data <- data.frame(
+  Category = c("Regret", "Luck"),
+  Adams_Routine = c(adams_regret_p, adams_luck_p),
+  White_Exception = c(white_regret_p, white_luck_p)
+)
+
+# Convert the data from wide to long format
+data_long <- melt(data, id.vars = "Category", variable.name = "Condition", value.name = "Percentage")
+
+# Reorder the factor levels of Category so that 'Regret' comes first
+data_long$Category <- factor(data_long$Category, levels = c("Regret", "Luck"))
+
+# Create the bar plot with the categories reordered
+ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9), width = 0.7) +
+  scale_fill_manual(values = c("Adams_Routine" = "grey", "White_Exception" = "#505050"), 
+                    labels = c("Mr.Adams(Routine)", "Mr.White(Exception)")) +
+  scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, by = 20)) + # label the y-axis every 20%
+  theme_minimal() +
+  labs(x = "", y = "Percentage", fill = "Condition") +
+  theme(axis.text.x = element_text(hjust = 1, vjust = 1, colour = "black",size = 9), 
+    legend.position = "top", legend.title = element_blank())
+```
 
 
 
