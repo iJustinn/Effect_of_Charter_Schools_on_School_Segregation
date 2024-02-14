@@ -17,8 +17,6 @@ The files for this research are organized in the following ways:
 
 -   `outputs/paper`: files used to generate the paper, such as Quarto and bibliography files, as well as the research paper itself
 
--   `scripts`: R code used for data simulation, downloading, analysis, and visualization
-
 ## Large Language Model (LLM) usage statement
 
 This project utilized ChatGPT to assist during the research, development, and writing processes. A record of usage can be found in the `inputs/llm` folder of this repository.
