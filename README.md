@@ -13,11 +13,9 @@ The files for this research are organized in the following ways:
 
 -   `inputs/llm`: records of multiple conversations with Chat GPT that assisted in building this project
 
--   `outputs/data`: data sources utilized for visualization, such as cleaned data, summarized data by division, and summarized data by year, etc
+-   `inputs/literature`: the literature used as supporting evidence or as references in the final paper
 
 -   `outputs/paper`: files used to generate the paper, such as Quarto and bibliography files, as well as the research paper itself
-
--   `scripts`: R code used for data simulation, downloading, analysis, and visualization
 
 ## Large Language Model (LLM) usage statement
 
