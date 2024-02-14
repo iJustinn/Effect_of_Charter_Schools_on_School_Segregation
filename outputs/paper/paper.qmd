@@ -43,9 +43,9 @@ data <- read_csv(file_path, show_col_types = FALSE)
 
 # Introduction
 
-Regret, defined as an emotional response to the memory of past decisions or actions that one wishes had been different, significantly impacts our daily lives. This paper delves into the factors that influence the intensity of regret, with a specific focus on social norms and past behaviors. Understanding these elements is essential for a clearer grasp of the decision-making process and the emotions that result from it.
+Regret, defined as an emotional response to the memory of past decisions or actions that one wishes had been different, significantly impacts our daily lives [@citeRegret]. This paper delves into the factors that influence the intensity of regret, with a specific focus on social norms and past behaviors. Understanding these elements is essential for a clearer grasp of the decision-making process and the emotions that result from it.
 
-We categorize social norms into two main types: descriptive norms, which concern beliefs about common behaviors within a group, and injunctive norms, which relate to beliefs about what behaviors are approved or disapproved by others. Our research involves two experiments aimed at assessing the effect of these norms on regret. The first experiment looks into the role of these norms in the context of deciding whether or not to pick up a hitchhiker, while the second addresses the consequences of selecting an unconventional driving route.
+We categorize social norms into two main types: descriptive norms, which concern beliefs about common behaviors within a group, and injunctive norms, which relate to beliefs about what behaviors are approved or disapproved by others [@citeUNICEF]. Our research involves two experiments aimed at assessing the effect of these norms on regret. The first experiment looks into the role of these norms in the context of deciding whether or not to pick up a hitchhiker, while the second addresses the consequences of selecting an unconventional driving route.
 
 The findings from these experiments reveal that unusual or unexpected events tend to provoke stronger feelings of regret than routine behaviors. However, the influence of both injunctive and descriptive social norms on the level of regret was found to be less significant. These results highlight how deviations from usual behavior, particularly when in conflict with social norms, can intensify feelings of regret. This insight is crucial for a better understanding of the cognitive processes involved in evaluating decisions and the emotional aftermath.
 
@@ -53,7 +53,7 @@ The organization of this paper is methodical and clear. We start with an overvie
 
 # Data {#sec-data}
 
-Data used in this paper was cleaned and processed with the programming language R [@citeR]. Also with support of additional packages in R: `tidyverse` [@citeTidyverse], `ggplot2` [@citeGgplot], `janitor` [@citeJanitor], `dplyr` [@citeDplyr], `readr` [@citeReadr], `knitr` [@citeknitr].
+Data used in this paper was cleaned and processed with the programming language R [@citeR]. Also with support of additional packages in R: `tidyverse` [@citeTidyverse], `ggplot2` [@citeGgplot], `janitor` [@citeJanitor], `dplyr` [@citeDplyr], `readr` [@citeReadr], `knitr` [@citeknitr], 'kableExtra' [@citeKableExtra], 'reshape2' [@citeReshape2].
 
 ## Source
 
