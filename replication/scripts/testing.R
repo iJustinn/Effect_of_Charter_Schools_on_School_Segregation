@@ -1,28 +1,38 @@
 # Load the dataset into R
-file_path <- "../../inputs/data/raw_data.csv"
-my_data <- read_csv(file_path, show_col_types = FALSE)
+file_path <- "inputs/data/raw_data.csv"
+data <- read_csv(file_path, show_col_types = FALSE)
 
-# Check if 'age' contains only integer values
-is_age_integer <- all(my_data$age == floor(my_data$age))
+# Check if selected columns contain only the values 1 and 2
+selected_data <- data %>%
+  select(Sc1_regret, sc1_socnorms1, sc1_socnorms2, sc1_combinednorms, Sc2_regret, Sc2_lucky) %>%
+  rename(
+    "Experiment 1 regret" = Sc1_regret,
+    "Injuctive norms" = sc1_socnorms1,
+    "Descriptive norms" = sc1_socnorms2,
+    "Negative effect" = sc1_combinednorms,
+    "Experiment 2 regret" = Sc2_regret,
+    "Luck" = Sc2_lucky
+  )
 
-# Check if 'gender' contains only the values 1 and 2
-valid_genders <- unique(my_data$gender)
-is_gender_valid <- all(valid_genders %in% c(1, 2))
+selected_data <- na.omit(selected_data)
 
-# Output the results
-print(paste("Age column contains only integers:", is_age_integer))
-print(paste("Gender column contains only 1 and 2:", is_gender_valid))
+columns_to_check <- c("Experiment 1 regret", "Injuctive norms", "Descriptive norms", "Negative effect", "Experiment 2 regret", "Luck")
 
-# Optionally, identify rows with problematic 'age' data
-if(!is_age_integer) {
-  problematic_age <- my_data[my_data$age != floor(my_data$age), ]
-  print("Rows with problematic 'age' data:")
-  print(problematic_age)
-}
+results <- sapply(selected_data[columns_to_check], function(x) all(x %in% c(1, 2)))
+print(results)
 
-# Optionally, identify rows with problematic 'gender' data
-if(!is_gender_valid) {
-  problematic_gender <- my_data[!my_data$gender %in% c(1, 2), ]
-  print("Rows with problematic 'gender' data:")
-  print(problematic_gender)
-}
+# Check if selected columns contains only numeric values
+# Define the columns to check
+columns_to_check <- c("Experiment 1 regret", "Injuctive norms", "Descriptive norms", "Negative effect", "Experiment 2 regret", "Luck")
+
+# Check if the specified columns contain only numeric values
+are_columns_numeric <- sapply(selected_data[columns_to_check], is.numeric)
+
+# Print the results
+print(are_columns_numeric)
+
+# check if there 342 participants
+nrow(selected_data) == 342
+
+# check there are in total of 6 variables
+ncol(selected_data) == 6
