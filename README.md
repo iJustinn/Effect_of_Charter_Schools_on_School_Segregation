@@ -24,21 +24,7 @@ The files for this research are organized in the following ways:
 -   `outputs/paper`: files used to generate the paper, such as Quarto and bibliography files, as well as the research paper itself
 
 ## SSRP
-The replication on the Social Science Reproduction Platform (SSRP) can be found at: https://doi.org/10.48152/ssrp-ca38-1312
-
-There were some minor errors when submitting our reproduction, and here's the correction:
-> The average reproducibility score across all 5 display items is 9 (on a scale from 1 to 10, where 5 and 10 represent reproducible from analysis and raw data respectively).
-> Reproducibility of Display Items:
-
-> Figure 1 - Proportions for perceived regret, injunctive social norms, descriptive social norms, and negative affect.: 9
-
-> Figure 2 - Proportions for perceived regret and luck.: 9
-
-> Table 1 - Counts and proportions for perceived regret, social norms, and negative affect.: 9
-
-> Table 2 - Counts and proportions for perceived regret and luck.: 9
-
-> Table 3 - Sample size, means, and standard deviations for victim compensation and regret.: 9
+The replication on the Social Science Reproduction Platform (SSRP) can be found at: https://doi.org/10.48152/ssrp-kaje-py26
 
 ## Large Language Model (LLM) usage statement
 
