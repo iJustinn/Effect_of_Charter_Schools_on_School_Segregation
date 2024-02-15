@@ -288,19 +288,19 @@ Mr. Adams, who represents routine behavior, exhibits a regret level of 18.8%, su
 # Discussion
 
 ## Replication and estimand
-
+In replicating the classic experiments by Kahneman and Miller (1986), our study sought to precisely estimate the effect of deviations from routine on the experience of regret — a clearly defined estimand. This estimand was articulated in the introduction and guided the experimental design to ensure the validity of our findings.
 
 ## Measurement validity
-
+The validity of our measurements was paramount, as we endeavored to capture quantifiable aspects of regret that directly relate to our estimand. Our measures of regret, social norms, and the added dimension of luck were developed to reflect the actual constructs under study, adhering to the principles outlined by Flake and Fried (2020). This rigorous approach to measurement ensures that the quantified variables are not only appropriate but also reliably represent the concepts they are intended to measure.
 
 ## Ethical Considerations and Bias
-
+Ethical considerations in replicating behavioral experiments are critical. We ensured the ethical treatment of participants and transparency in our methodology, especially considering the subjective nature of self-reported data on regret. The study's design attempted to minimize bias, but we acknowledge that no research is free from all bias, including potential measurement errors or the influence of the study's context on participants' responses.
 
 ## Limitations and Future Research
-
+A limitation of the current study includes the use of vignettes, which may not fully capture the complexity of real-life decisions and their emotional consequences. Future studies might explore the phenomenon in naturalistic settings or employ longitudinal designs to observe the persistence of regret over time. Additional research could also examine whether different types of regret have varying impacts on future decision-making and behavior change.
 
 ## Conclusion
-
+Our study contributes to the body of literature on decision-making and emotion by providing a refined estimation of the exceptionality effect's impact on regret. The robustness of the effect across replications reinforces its relevance in psychological research. Moving forward, there is a need for more nuanced investigations that consider the complexity of human behavior and the myriad factors that shape our emotional responses to our decisions.
 
 
 
