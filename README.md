@@ -23,6 +23,9 @@ The files for this research are organized in the following ways:
 
 -   `outputs/paper`: files used to generate the paper, such as Quarto and bibliography files, as well as the research paper itself
 
+## SSRP
+The replication on the Social Science Reproduction Platform (SSRP) can be found at https://doi.org/10.48152/ssrp-2qv6-d777
+
 ## Large Language Model (LLM) usage statement
 
 This project utilized ChatGPT to assist during the research, development, and writing processes. A record of usage can be found in the `inputs/llm` folder of this repository.
