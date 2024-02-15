@@ -4,13 +4,13 @@ subtitle: "The replication of two major experiments"
 author: 
   - Ziheng Zhong
   - Yihang Cai
-thanks: "Code and data are available at: https://github.com/iJustinn/Impact_of_Past_Behavior_Normality_on_Regret.git"
+thanks: "Code and data are available at: https://github.com/iJustinn/Impact_of_Past_Behavior_Normality_on_Regret.git, the original paper can be found at https://doi.org/10.1080/02699931.2018.1504747"
 date: today
-date-format: long
-abstract: "To be written after we finished the Discussion section"
+date-format: "long" 
+abstract: "The paper investigates the influence of deviation from routine versus social norms on regret. Through replicating two significant experiments, it found that deviations, or the exceptionality effect, significantly impact regret levels. Participants perceived those who diverged from routine behaviors as experiencing more regret, a finding consistent across two experiments and further underscored by measurements of negative effect and luck. This study enriches the understanding of decision-making and emotions, emphasizing the pivotal role of personal behavioral norms in shaping regret, thereby contributing to psychological research's knowledge base."
 format: pdf
+output: bookdown::pdf_document2
 toc: true
-toc-depth: 3
 number-sections: true
 bibliography: references.bib
 ---
@@ -18,6 +18,9 @@ bibliography: references.bib
 ```{r}
 #| message: false
 #| echo: false
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
 
 # load packages
 library(tidyverse)
@@ -39,13 +42,11 @@ file_path <- "../../inputs/data/raw_data.csv"
 data <- read_csv(file_path, show_col_types = FALSE)
 ```
 
-
-
 # Introduction
 
 Regret, defined as an emotional response to the memory of past decisions or actions that one wishes had been different, significantly impacts our daily lives [@citeRegret]. This paper delves into the factors that influence the intensity of regret, with a specific focus on social norms and past behaviors. Understanding these elements is essential for a clearer grasp of the decision-making process and the emotions that result from it.
 
-We categorize social norms into two main types: descriptive norms, which concern beliefs about common behaviors within a group, and injunctive norms, which relate to beliefs about what behaviors are approved or disapproved by others [@citeUNICEF]. Our research involves two experiments aimed at assessing the effect of these norms on regret. The first experiment looks into the role of these norms in the context of deciding whether or not to pick up a hitchhiker, while the second addresses the consequences of selecting an unconventional driving route.
+We are trying to measure which of the two factors has a more significant effect on the level of regret (estimand): social norms and past behaviors(exceptionality effect). We categorize social norms into two main types: descriptive norms, which concern beliefs about common behaviors within a group, and injunctive norms, which relate to beliefs about what behaviors are approved or disapproved by others [@citeUNICEF]. Our research involves two experiments aimed at assessing the effect of these norms on regret. The first experiment looks into the role of these norms in the context of deciding whether or not to pick up a hitchhiker, while the second addresses the consequences of selecting an unconventional driving route.
 
 The findings from these experiments reveal that unusual or unexpected events tend to provoke stronger feelings of regret than routine behaviors. However, the influence of both injunctive and descriptive social norms on the level of regret was found to be less significant. These results highlight how deviations from usual behavior, particularly when in conflict with social norms, can intensify feelings of regret. This insight is crucial for a better understanding of the cognitive processes involved in evaluating decisions and the emotional aftermath.
 
@@ -60,22 +61,17 @@ Data used in this paper was cleaned and processed with the programming language 
 The data utilized in this study replicates experimental findings from the research documented in @citeOriginalPaper. This original research itself is a replication of three seminal experiments designed to explore the influence of past behaviors on regret. The initial two experiments were pioneered by Kahneman and Miller in 1986, with the third experiment conducted by Miller and McFarland in the same year. Furthermore, the original study expands upon these foundational experiments. For the first experiment, it introduces an additional parameter to measure the overall emotional reaction of participants, considering the impact of both types of social norms. In the second experiment, a "Luck" measure was added to determine if the way people estimate probabilities influences their sense of what is typical. The expansion of the third experiment is not covered in this paper, as our examination is limited to the initial two experiments.
 
 ## Method
+
 In the first experiment, participants were presented with a well-known scenario by Kahneman and Miller, often referred to as the hitchhiker scenario: "Mr. Jones almost never takes hitch-hikers in his car. Yesterday he gave a man a ride and was robbed. Mr. Smith frequently takes hitch-hikers in his car. Yesterday he gave a man a ride and was robbed" (@citeOriginalPaper). The original study included three comprehension questions to confirm participants' understanding of the scenario, which we will not detail here. To assess the influence of injunctive and descriptive social norms, participants were asked: "Whose behavior do you think is more common in society? Mr.Jones(1)/Mr.Smith(2)" and "Whose behavior do you think will be more criticized by others in society? Mr.Jones(1)/Mr.Smith(2)" respectively. And the level of regret is also assessed by asking the question "Who do you expect will experience greater regret over the episode? Mr.Jones(1)/Mr.Smith(2)" (@citeOriginalPaper). The additional measure of negative effect is measured by asking the question "Contemplating your previous answers about this scenario and factoring in both Mr.Jones and Mr.Smith personal routines and your perceptions of social norms and possible social criticism, who do you think overall experienced more negative feelings about the decision to take a hitch-hiker that day? Mr.Jones(1)/Mr.Smith(2)".
 
 The second experiment involved another scenario by Kahneman and Miller, known as the car accident scenario: "Mr. Adams was involved in an accident when driving home after work on his regular route. Mr. White was involved in a similar accident when driving on a route that he only takes when he wants a change of scenery" (@citeOriginalPaper). As with the first experiment, comprehension questions were included but are not discussed here. The feeling of regret is assessed by asking the question "Who is more upset over the accident? Mr.Adams(1)/Mr.White(2)". The "Luck" measure is examined by the question "Which of the two do you think is less lucky? Mr.Adams(1)/Mr.White(2)".
 
 ## Attibutes
-The survey dataset initially contained 52 variables. After excluding variables related to the third experiment and comprehension questions, the dataset was narrowed down to 6 key variables for analysis. For the first experiment, 'Sc1_regret' represents participant responses to the regret question. 'Sc1_socnorms1' and 'Sc1_socnorms2' correspond to the assessment of injunctive and descriptive social norms, respectively. 'Sc1_combinednorms' is an additional variable introduced to measure the overall negative emotional response. As mentioned above, 1 in the dataset represents the Mr.Jones, where 2 represents Mr.Smith. 
-
-In relation to the second experiment, 'Sc2_regret' denotes the responses to the regret question. The 'Sc2_lucky' variable is an added measure corresponding to participants' perceptions of luck as introduced in the "Luck" question. And 1 stands for Mr.Adams, where 2 is Mr.White.
-
-The top ten rows of filtered data with variables renamed is shown in @tbl-filtereddata.
 
 ```{r}
 #| message: false
 #| echo: false
 #| warning: false
-#| fig-pos: 'h'
 #| label: tbl-filtereddata
 #| tbl-cap: top 10 rows of filtered data
 
@@ -97,15 +93,25 @@ example_kable <- kable(example_data, format = "latex", booktabs = TRUE, align='c
 example_kable
 ```
 
+The survey dataset initially contained 52 variables. After excluding variables related to the third experiment and comprehension questions, the dataset was narrowed down to 6 key variables for analysis. For the first experiment, 'Sc1_regret' represents participant responses to the regret question. 'Sc1_socnorms1' and 'Sc1_socnorms2' correspond to the assessment of injunctive and descriptive social norms, respectively. 'Sc1_combinednorms' is an additional variable introduced to measure the overall negative emotional response. As mentioned above, 1 in the dataset represents the Mr.Jones, where 2 represents Mr.Smith.
+
+In relation to the second experiment, 'Sc2_regret' denotes the responses to the regret question. The 'Sc2_lucky' variable is an added measure corresponding to participants' perceptions of luck as introduced in the "Luck" question. And 1 stands for Mr.Adams, where 2 is Mr.White.
+
+The top ten rows of filtered data with variables renamed is shown in @tbl-filtereddata.
+
+\newpage
 
 # Results
+
 ## Experiment 1
+
+@tbl-experiment1 displays results from experiment 1. Mr. Jones, who performs an action that is an exception to his routine, reports a higher regret level of 92.1%. Most participants rated Mr.Jones' behavior to be more common (descriptive) as he never gave ride to hitchhiker (95.3) and therefore to be less criticized (injunctive) by the society (9.4%). Mr.Jones is thought to experience more negative feelings about the decision made that day combining previous answers to the two social norms (92.7%). Mr.Smith, associated with routine behavior, shows markedly lower levels in these aspects, participants rated 7.9%, 4.7%, 90.6% and 7.3% for regret, descriptive social norm, injunctive social norm, and negative effect respectively. Indicating that although Mr.Smith is thought to be criticized more in the society, he would experience less regret and negative effect overall.
 
 ```{r}
 #| message: false
 #| echo: false
 #| warning: false
-#| fig-pos: 'h'
+#| fig-pos: 'H'
 #| label: tbl-experiment1
 #| tbl-cap: Result of experiment 1
 
@@ -146,11 +152,13 @@ kable_output <- kable(combined_data, "latex", booktabs = TRUE) %>%
 kable_output
 ```
 
+The disparity in responses suggests that individuals who engage in behaviors that are not typical for them (Mr. Jones) are more likely to experience and be perceived as having stronger regret and more negative emotional responses. The consistency in this pattern across different measures indicates a robust finding, aligning with psychological theories that predict increased emotional consequences for actions that deviate from one's own or society's expectations.
+
+
 ```{r}
 #| message: false
 #| echo: false
 #| warning: false
-#| fig-pos: 'h'
 #| label: fig-experiment1bar
 #| fig-cap: Bar plot of experiment 1
 
@@ -190,19 +198,20 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
   theme(axis.text.x = element_text(hjust = 1, vjust = 1, colour = "black",size = 9), 
     legend.position = "top", legend.title = element_blank())
 ```
-
-@tbl-experiment1 and @fig-experiment1bar display results from experiment 1. Mr. Jones, who performs an action that is an exception to his routine, reports a higher regret level of 92.1%. Most participants rated Mr.Jones' behavior to be more common (descriptive) as he never gave ride to hitchhiker (95.3) and therefore to be less criticized (injunctive) by the society (9.4%). Mr.Jones is thought to experience more negative feelings about the decision made that day combining previous answers to the two social norms (92.7%). Mr.Smith, associated with routine behavior, shows markedly lower levels in these aspects, participants rated 7.9%, 4.7%, 90.6% and 7.3% for regret, descriptive social norm, injunctive social norm, and negative effect respectively. Indicating that although Mr.Smith is thought to be criticized more in the society, he would experience less regret and negative effect overall. 
-
-
-The disparity in responses suggests that individuals who engage in behaviors that are not typical for them (Mr. Jones) are more likely to experience and be perceived as having stronger regret and more negative emotional responses. The consistency in this pattern across different measures indicates a robust finding, aligning with psychological theories that predict increased emotional consequences for actions that deviate from one's own or society's expectations. The bar plot @fig-experiment1bar quantitatively illustrates these findings. Mr. Jones's experiences with regret and negative affect are visually represented by significantly taller bars compared to Mr. Smith's, reflecting the numerical data.
+The bar plot @fig-experiment1bar quantitatively illustrates these findings. Mr. Jones's experiences with regret and negative affect are visually represented by significantly taller bars compared to Mr. Smith's, reflecting the numerical data.
 
 ## Experiment 2
 
+@tbl-experiment2 and @fig-experiment2bar illustrate the outcomes of experiment 2, which addresses perceptions of regret and luck in decision-making under varying conditions of routine and exception.
+
+Mr. Adams, who represents routine behavior, exhibits a regret level of 18.8%, suggesting that participants view routine actions as less regrettable. His luck perception stands at 32.9%, indicating that participants may see routine choices as less influenced by luck. On the contrary, Mr. White, who represents an exception to routine, is associated with a markedly higher regret level at 81.2%. This suggests that non-routine actions are perceived as significantly more regrettable. Furthermore, his luck perception is at 67.1%, which could reflect a belief that deviations from routine are more susceptible to chance and less within an individual's control.
+
+
 ```{r}
 #| message: false
+#| fig-pos: 'h'
 #| echo: false
 #| warning: false
-#| fig-pos: 'h'
 #| label: tbl-experiment2
 #| tbl-cap: Result of experiment 2
 
@@ -239,14 +248,17 @@ kable_output <- kable(combined_data, "latex", booktabs = TRUE) %>%
 kable_output
 ```
 
+@fig-experiment2bar graphically accentuates these findings, with much higher height bars for Mr.White in terms of regret and luck. This visual comparison conveys the statistical differences and underscores the paper's exploration of the psychological impacts of routine versus exceptional decisions. This visualization complements the statistical data by providing an immediate, comparative view of the emotional weight and perceived randomness assigned to each individual's experience.
+
+
 ```{r}
 #| message: false
 #| echo: false
 #| warning: false
-#| fig-pos: 'h'
 #| label: fig-experiment2bar
 #| fig-cap: Bar plot of experiment 2
 
+# calculate each percentage
 adams_regret_p <- round((mr_adams_counts / total_counts_2) * 100, 1)
 adams_luck_p <- round((sum(data_filtered_2$Sc2_lucky == 1) / total_counts_2) * 100, 1)
 white_regret_p <- round((sum(data_filtered_2$Sc2_regret == 2) / total_counts_2) * 100, 1)
@@ -277,44 +289,31 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
     legend.position = "top", legend.title = element_blank())
 ```
 
-@tbl-experiment2 and @fig-experiment2bar illustrate the outcomes of experiment 2, which addresses perceptions of regret and luck in decision-making under varying conditions of routine and exception.
-
-Mr. Adams, who represents routine behavior, exhibits a regret level of 18.8%, suggesting that participants view routine actions as less regrettable. His luck perception stands at 32.9%, indicating that participants may see routine choices as less influenced by luck. On the contrary, Mr. White, who represents an exception to routine, is associated with a markedly higher regret level at 81.2%. This suggests that non-routine actions are perceived as significantly more regrettable. Furthermore, his luck perception is at 67.1%, which could reflect a belief that deviations from routine are more susceptible to chance and less within an individual's control.
-
-@fig-experiment2bar graphically accentuates these findings, with much higher height bars for Mr.White in terms of regret and luck. This visual comparison conveys the statistical differences and underscores the paper's exploration of the psychological impacts of routine versus exceptional decisions. This visualization complements the statistical data by providing an immediate, comparative view of the emotional weight and perceived randomness assigned to each individual's experience.
-
-
-
 
 # Discussion
 
 ## Replication and estimand
-In replicating the classic experiments by Kahneman and Miller (1986), our study sought to precisely estimate the effect of deviations from routine on the experience of regret — a clearly defined estimand. This estimand was articulated in the introduction and guided the experimental design to ensure the validity of our findings.
+
+In replicating the classic experiments by Kahneman and Miller (1986), our study sought to estimate the effect of social norms and past behaviors on the experience of regret (which of the two is more important) — a clearly defined estimand. This estimand was articulated in the introduction and guided the experimental design to ensure the validity of our findings.
 
 ## Measurement validity
-The validity of our measurements was paramount, as we endeavored to capture quantifiable aspects of regret that directly relate to our estimand. Our measures of regret, social norms, and the added dimension of luck were developed to reflect the actual constructs under study, adhering to the principles outlined by Flake and Fried (2020). This rigorous approach to measurement ensures that the quantified variables are not only appropriate but also reliably represent the concepts they are intended to measure.
+
+The validity of our measurements was crucial, as we endeavored to capture quantifiable aspects of regret that directly relate to our estimand. Our measures of regret, social norms, and the added dimension of luck and negative effect were developed to reflect the actual constructs under study. This rigorous approach to measurement ensures that the quantified variables are not only appropriate but also reliably represent the concepts they are intended to measure.
 
 ## Ethical Considerations and Bias
-Ethical considerations in replicating behavioral experiments are critical. We ensured the ethical treatment of participants and transparency in our methodology, especially considering the subjective nature of self-reported data on regret. The study's design attempted to minimize bias, but we acknowledge that no research is free from all bias, including potential measurement errors or the influence of the study's context on participants' responses.
+
+Ethical considerations in replicating behavioral experiments are critical. The original paper recruited American Amazon Mechanical Turk (MTurk) participants online, and ensured that the participants took the survey in the first experiment could not take in the second experiment. Thus, eliminating any possible effects between the two experiments. The study's design attempted to minimize bias, but we acknowledge that no research is free from all bias, including potential measurement errors or the influence of the study's context on participants' responses.
 
 ## Limitations and Future Research
+
 A limitation of the current study includes the use of vignettes, which may not fully capture the complexity of real-life decisions and their emotional consequences. Future studies might explore the phenomenon in naturalistic settings or employ longitudinal designs to observe the persistence of regret over time. Additional research could also examine whether different types of regret have varying impacts on future decision-making and behavior change.
 
-## Conclusion
-Our study contributes to the body of literature on decision-making and emotion by providing a refined estimation of the exceptionality effect's impact on regret. The robustness of the effect across replications reinforces its relevance in psychological research. Moving forward, there is a need for more nuanced investigations that consider the complexity of human behavior and the myriad factors that shape our emotional responses to our decisions.
+## Result and Conclusion
 
-
-
-
+The study's findings suggest that deviations from routine have a more pronounced impact on regret than social norms. Both experiments showed that participants believed individuals who diverged from their usual behavior (Mr. Jones and Mr. White) felt more regret compared to those who did not. This was further supported by the negative effect measurement, which took into account both injunctive and descriptive social norms. Additionally, participants considered Mr. White to be less fortunate than Mr. Adams, suggesting that routine actions might lead to fewer regrets. This research adds valuable insight into how exceptional actions influence regret, reinforcing the significance of the exceptionality effect in understanding emotional responses in decision-making. The robustness of the effect across replications reinforces its relevance in psychological research.
 
 \newpage
 
-
-
-
 \newpage
-
 
 # References
-
-
