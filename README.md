@@ -11,13 +11,13 @@ The files for this research are organized in the following ways:
 
 -   `inputs/data`: the raw data used for analysis
 
--   `inputs/llm`: records of multiple conversations with Chat GPT that assisted in building this project
+-   `inputs/llm`: records of conversation with Chat GPT that assisted in building this project
 
 -   `inputs/literature`: the literature used as supporting evidence or as references in the final paper
 
 -   `replication/figures`: replicated figures in the final paper
 
--   `replication/scripts`: scripts used in this research to generate figures, tables, and data testing
+-   `replication/scripts`: scripts used in this research for simulation, generate figures & tables, and data testing
 
 -   `replication/sketches`: sketches of the dataset and figures before replication
 
