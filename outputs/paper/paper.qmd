@@ -276,20 +276,30 @@ ggplot(data_long, aes(x = Category, y = Percentage, fill = Condition)) +
     legend.position = "top", legend.title = element_blank())
 ```
 
+@tbl-experiment2 and @fig-experiment2bar illustrate the outcomes of experiment 2, which addresses perceptions of regret and luck in decision-making under varying conditions of routine and exception.
+
+Mr. Adams, who represents routine behavior, exhibits a regret level of 18.8%, suggesting that participants view routine actions as less regrettable. His luck perception stands at 32.9%, indicating that participants may see routine choices as less influenced by luck. On the contrary, Mr. White, who represents an exception to routine, is associated with a markedly higher regret level at 81.2%. This suggests that non-routine actions are perceived as significantly more regrettable. Furthermore, his luck perception is at 67.1%, which could reflect a belief that deviations from routine are more susceptible to chance and less within an individual's control.
+
+@fig-experiment2bar graphically accentuates these findings, with much higher height bars for Mr.White in terms of regret and luck. This visual comparison conveys the statistical differences and underscores the paper's exploration of the psychological impacts of routine versus exceptional decisions. This visualization complements the statistical data by providing an immediate, comparative view of the emotional weight and perceived randomness assigned to each individual's experience.
+
+
 
 
 # Discussion
 
-## First discussion point
+## Replication and estimand
 
 
-## Second discussion point
+## Measurement validity
 
 
-## Third discussion point
+## Ethical Considerations and Bias
 
 
-## Weaknesses and next steps
+## Limitations and Future Research
+
+
+## Conclusion
 
 
 
