@@ -154,6 +154,7 @@ kable_output
 #| label: fig-experiment1bar
 #| fig-cap: Bar plot of experiment 1
 
+# calculate each percentage
 smith_regret_p <- round((mr_smith_counts / total_counts_1) * 100, 1)
 smith_injunctive_p <- round((sum(data_filtered_1$sc1_socnorms1 == 2) / total_counts_1) * 100, 1)
 smith_descriptive_p <- round((sum(data_filtered_1$sc1_socnorms2 == 2) / total_counts_1) * 100, 1)
