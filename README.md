@@ -15,6 +15,12 @@ The files for this research are organized in the following ways:
 
 -   `inputs/literature`: the literature used as supporting evidence or as references in the final paper
 
+-   `replication/figures`: replicated figures in the final paper
+
+-   `replication/scripts`: scripts used in this research to generate figures, tables, and data testing
+
+-   `replication/sketches`: sketches of the dataset and figures before replication
+
 -   `outputs/paper`: files used to generate the paper, such as Quarto and bibliography files, as well as the research paper itself
 
 ## Large Language Model (LLM) usage statement
